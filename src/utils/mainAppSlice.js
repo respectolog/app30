@@ -3,22 +3,6 @@ import data from "../tree.json";
 
 const catalog = data.data;
 
-
-  fetch("https://merchant.dev.telcell.sale/api/v1/catalog/group/category/subcategory/tree?full=true")
-    .then(res => res.json())
-    .then(
-      (result) => {
-        const catalog = result.data;
-      },
-      // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
-      // чтобы не перехватывать исключения из ошибок в самих компонентах.
-      (error) => {
-        const catalog = [];
-      }
-    );
-
-
-
 let catlist = catalog.map(function (item) {
   return {
     id: item.id,

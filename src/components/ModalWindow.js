@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal, Button } from "antd";
 import "antd/dist/antd.css";
 import { Catalog } from './Catalog.js';
@@ -11,6 +11,25 @@ export function ModalWindow() {
   const handleCancel = () => {
       setIsModalVisible(false);
   };
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+   fetch("https://merchant.dev.telcell.sale/api/v1/catalog/group/category/subcategory/tree?full=true")
+     .then(res => res.json())
+     .then(
+       (result) => {
+         setIsLoaded(true);
+         setItems(result);
+       },
+       // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
+       // чтобы не перехватывать исключения из ошибок в самих компонентах.
+       (error) => {
+         setIsLoaded(true);
+         setError(error);
+       }
+     )
+ }, [])
 
 
 return (
@@ -25,7 +44,7 @@ return (
   width={1280}
   footer={null}
   >
-      < Catalog/>
+      < Catalog items={items.data}/>
 
   </Modal>
   </>
