@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-
 import "./Catalog.sass";
 import { Search } from "./Search";
 import lupa from "../lupa.png";
@@ -9,11 +8,8 @@ import lupa from "../lupa.png";
 export function Catalog(props) {
   const dispatch = useDispatch();
   const categories = props.items;
-
   const [active_cat, changeActiveCat] = useState(categories[0]);
-
   const [active_link, setActiveLink] = useState(categories[0].id);
-
   const [s_word, changeWord] = useState("");
 
   function handleChange(event) {
