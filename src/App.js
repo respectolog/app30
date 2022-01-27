@@ -1,5 +1,3 @@
-import React from "react";
-import logo from "./logo.svg";
 import { ModalWindow } from "./components/ModalWindow";
 import "./App.css";
 
