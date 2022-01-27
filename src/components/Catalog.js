@@ -1,6 +1,4 @@
-import React from "react";
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Catalog.sass";
 import { Search } from "./Search";
 import lupa from "../lupa.png";
