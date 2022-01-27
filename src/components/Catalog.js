@@ -8,7 +8,6 @@ export function Catalog(props) {
   const [activeCategory, changeActiveCategory] = useState(categories[0]);
   const [activeLink, setActiveLink] = useState(categories[0]?.id);
   const [searchWord, changeWord] = useState("");
-  const [choicedCategory, setChoicedCategory] = useState("");
   const close = props.funcClose;
   const setPath = props.funcSetPath;
 
@@ -24,7 +23,7 @@ export function Catalog(props) {
     <>
       <div className="catalog">
         <div className="search">
-          <img src={lupa} />
+          <img src={lupa} alt="search"/>
           <input type="search" placeholder="Поиск" onChange={handleChange} />
         </div>
         <Search word={searchWord} categories={categories} />

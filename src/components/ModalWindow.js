@@ -10,7 +10,7 @@ export function ModalWindow() {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-  
+  const [choicedCategory, setChoicedCategory] = useState([]);
   const setPath = (path) => {
     setChoicedCategory(path);
   };
