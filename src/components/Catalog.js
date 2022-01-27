@@ -14,19 +14,24 @@ export function Catalog(props) {
   function handleChange(event) {
     changeWord(event.target.value);
   }
-  function choiceCategory(path) {
+  const choiceCategory = (path) => {
     setPath(path);
     close();
-  }
+  };
 
   return (
     <>
       <div className="catalog">
         <div className="search">
-          <img src={lupa} alt="search"/>
+          <img src={lupa} alt="search" />
           <input type="search" placeholder="Поиск" onChange={handleChange} />
         </div>
-        <Search word={searchWord} categories={categories} />
+        <Search
+          word={searchWord}
+          categories={categories}
+          funcChoice={choiceCategory}
+          funcClose={close}
+        />
         <div className="root-categories">
           <ul>
             {categories.map((item) => {
@@ -45,7 +50,7 @@ export function Catalog(props) {
           </ul>
         </div>
         <div className="sub-categories">
-          <>
+          <div className="category-container">
             {activeCategory.categories.map((item) => {
               return (
                 <div key={item.id} className="categories-block">
@@ -75,7 +80,7 @@ export function Catalog(props) {
                 </div>
               );
             })}
-          </>
+          </div>
         </div>
       </div>
     </>

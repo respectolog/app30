@@ -1,32 +1,34 @@
-
 export function Search(props) {
   const categories = props.categories;
-  const s_word = props.word;
-  let s_mass = [];
+  const searchWord = props.word;
+  const setPath = props.funcChoice;
+  const close = props.funcClose;
+  let searchMassive = [];
+
+  function choiceCategory(path) {
+    setPath(path);
+    close();
+  }
 
   for (let item of categories) {
-    if (
-      item.title_ru.toLowerCase().indexOf(s_word.toLowerCase()) !== -1 &&
-      s_word !== ""
-    ) {
-      s_mass.push({ category: item.title_ru, id: item.id });
-    }
     if (item.categories) {
       for (let sub of item.categories) {
-        if (
-          sub.title_ru.toLowerCase().indexOf(s_word.toLowerCase()) !== -1 &&
-          s_word !== ""
-        ) {
-          s_mass.push({ category: sub.title_ru, id: sub.id });
-        }
         if (sub.subcategories) {
           for (let subsub of sub.subcategories) {
             if (
-              subsub.title_ru.toLowerCase().indexOf(s_word.toLowerCase()) !==
-                -1 &&
-              s_word !== ""
+              subsub.title_ru
+                .toLowerCase()
+                .indexOf(searchWord.toLowerCase()) !== -1 &&
+              searchWord !== ""
             ) {
-              s_mass.push({ category: subsub.title_ru, id: subsub.id });
+              searchMassive.push({
+                category: subsub.title_ru,
+                id: subsub.id,
+                parent: sub.title_ru,
+                parentid: sub.id,
+                rootcategory: item.title_ru,
+                rootcategoryid: item.id,
+              });
             }
           }
         }
@@ -35,9 +37,22 @@ export function Search(props) {
   }
 
   let output = "";
-  if (s_mass.length > 0) {
-    let list = s_mass.map((item) => {
-      return <a key={item.id}>{item.category}</a>;
+  if (searchMassive.length > 0) {
+    let list = searchMassive.map((item) => {
+      return (
+        <a
+          key={item.id}
+          onClick={() =>
+            choiceCategory([
+              { category: item.rootcategory, id: item.rootcategoryid },
+              { category: item.parent, id: item.parentid },
+              { category: item.category, id: item.id },
+            ])
+          }
+        >
+          {item.category}
+        </a>
+      );
     });
     output = <div className="search-result">{list}</div>;
   }

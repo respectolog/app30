@@ -7,7 +7,6 @@ $roboto: 'Roboto', serif
       width:  $size
       height: $size
 
-
   ::-webkit-scrollbar-thumb
       background: $foreground-color
       border-radius: 6px
@@ -16,8 +15,7 @@ $roboto: 'Roboto', serif
   ::-webkit-scrollbar-track
       background: $background-color
       border-radius: 6px
-      margin-bottom: 15px
-
+      margin-bottom: 20px
 
   // For Internet Explorer
   body
@@ -34,7 +32,6 @@ $roboto: 'Roboto', serif
    border-radius: 40px
    background-color: white
    @include scrollbars(12px, #FC441D, transparent)
-
 
 .root-categories
   width: 246px
@@ -56,15 +53,19 @@ $roboto: 'Roboto', serif
     a
       color:#FC441D
 .categories-block
-  height: auto
+  width: 100%
+  float: left
+  display: inline-block
+  page-break-inside: avoid
+  break-inside: avoid
 
 .sub-categories
+  height: 392px
   width: 80%
   float: left
-  height: 392px
   overflow: auto
-  display: grid
-  grid-template-columns: 1fr 1fr
+  .category-container
+    column-count: 2
 
   ul
     position: relative
