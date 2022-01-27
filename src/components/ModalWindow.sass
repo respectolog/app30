@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Scada:wght@400;700&display=swap')
+$roboto: 'Roboto', serif
+
+.modal-hidden
+  display: none
+.modal-switch
+  button
+    padding: 5px 10px
+    background-color: #43ffc2
+    font-family: $roboto
+    font-size: 16px
+    cursor: pointer
+
+.modal-visible
+  z-index: 101
+  position: relative
+  width: fit-content
+  margin: 0 auto
+  top: 10%
+  span
+    border: none
+    cursor: pointer
+    position: absolute
+    right: 30px
+    top: 10px
+    font-size: 16px
+
+.back-grey
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 100
+  background-color: #a2a2a2bf
+.category-path
+  span
+    padding-right: 5px
+  span:last-of-type
+    color: #FC441D
+    font-weight: bold
+  span:last-of-type::after
+    content: ''
+  span::after
+    content: ' >'

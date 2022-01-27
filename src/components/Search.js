@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 
 export function Search(props) {
-  const categories = props.cats;
+  const categories = props.categories;
   const s_word = props.word;
   let s_mass = [];
 
@@ -43,7 +43,7 @@ export function Search(props) {
     let list = s_mass.map((item) => {
       return <a key={item.id}>{item.category}</a>;
     });
-    output = <div id="search-result">{list}</div>;
+    output = <div className="search-result">{list}</div>;
   }
 
   return output;

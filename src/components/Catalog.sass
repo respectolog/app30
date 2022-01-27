@@ -24,7 +24,7 @@ $roboto: 'Roboto', serif
     scrollbar-face-color: $foreground-color
     scrollbar-track-color: $background-color
 
-#catalog
+.catalog
    width: 1280px
    height: 536px
    margin: 0 auto
@@ -32,10 +32,11 @@ $roboto: 'Roboto', serif
    font-family: $roboto
    border: 1px solid black
    border-radius: 40px
+   background-color: white
    @include scrollbars(12px, #FC441D, transparent)
 
 
-#root-cats
+.root-categories
   width: 246px
   float: left
   text-align: left
@@ -54,16 +55,19 @@ $roboto: 'Roboto', serif
   .active
     a
       color:#FC441D
+.categories-block
+  height: auto
 
-#sub-cats
+.sub-categories
   width: 80%
   float: left
   height: 392px
   overflow: auto
+  display: grid
+  grid-template-columns: 1fr 1fr
 
   ul
     position: relative
-    width: 50%
     float: left
     font-weight: 500
     font-size: 18px
@@ -80,7 +84,7 @@ $roboto: 'Roboto', serif
       padding-top: 20px
 
 
-#search-result
+.search-result
   position: absolute
   height: 392px
   z-index: 100
@@ -101,7 +105,7 @@ $roboto: 'Roboto', serif
   a:hover
     color: #FC441D
 
-#search
+.search
   text-align: center
   padding: 40px 0
   input
@@ -123,5 +127,3 @@ $roboto: 'Roboto', serif
 .ant-modal-body
   padding: 0
   border-radius: 40px
-.cat_button
-  margin-top: 50px
