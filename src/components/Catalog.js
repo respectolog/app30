@@ -22,7 +22,7 @@ export function Catalog(props) {
   return (
     <>
       <div className="catalog">
-        <div className="search">
+        <div className="catalog__search">
           <img src={lupa} alt="search" />
           <input type="search" placeholder="Поиск" onChange={handleChange} />
         </div>
@@ -32,16 +32,16 @@ export function Catalog(props) {
           funcChoice={choiceCategory}
           funcClose={close}
         />
-        <div className="root-categories">
-          <ul>
+        <div className="catalog__root-categories">
+          <ul className="catalog__root-categories-ul">
             {categories.map((item) => {
               return (
                 <li
                   key={item.id}
-                  className={item.id === activeLink ? "active" : ""}
+                  className={item.id === activeLink ? "catalog__root-categories-li-active" : "catalog__root-categories-li"}
                   onClick={(event) => setActiveLink(item.id)}
                 >
-                  <a onClick={(event) => changeActiveCategory(item)}>
+                  <a onClick={(event) => changeActiveCategory(item)} className="catalog__root-categories-a">
                     {item.title_ru}
                   </a>
                 </li>
@@ -49,16 +49,16 @@ export function Catalog(props) {
             })}
           </ul>
         </div>
-        <div className="sub-categories">
-          <div className="category-container">
+        <div className="catalog__sub-categories">
+          <div className="catalog__category-container">
             {activeCategory.categories.map((item) => {
               return (
-                <div key={item.id} className="categories-block">
-                  <ul>
+                <div key={item.id} className="catalog__categories-block">
+                  <ul className="catalog__ul">
                     {item.title_ru}
                     {item.subcategories.map((sub) => {
                       return (
-                        <li key={sub.id}>
+                        <li key={sub.id} className="catalog__li">
                           <a
                             onClick={() =>
                               choiceCategory([

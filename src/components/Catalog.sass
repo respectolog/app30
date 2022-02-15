@@ -33,41 +33,42 @@ $roboto: 'Roboto', serif
    background-color: white
    @include scrollbars(12px, #FC441D, transparent)
 
-.root-categories
+.catalog__root-categories
   width: 246px
   float: left
   text-align: left
   font-size: 18px
   font-weight: 500
-  ul
+  .catalog__root-categories-ul
     list-style: none
-    li
+    .catalog__root-categories-li
       padding-bottom: 25px
       text-align: left
       cursor: pointer
-      a
+      .catalog__root-categories-a
         color: black
-      a:hover
+      .catalog__root-categories-a:hover
         color: #FC441D
-  .active
-    a
+  .catalog__root-categories-li-active
+    padding-bottom: 25px
+    .catalog__root-categories-a
       color:#FC441D
-.categories-block
+.catalog__categories-block
   width: 100%
   float: left
   display: inline-block
   page-break-inside: avoid
   break-inside: avoid
 
-.sub-categories
+.catalog__sub-categories
   height: 392px
   width: 80%
   float: left
   overflow: auto
-  .category-container
+  .catalog__category-container
     column-count: 2
 
-  ul
+  .catalog__ul
     position: relative
     float: left
     font-weight: 500
@@ -76,16 +77,16 @@ $roboto: 'Roboto', serif
     text-align: left
     padding-left: 0
 
-    li
+    .catalog__li
       font-weight: normal
       padding: 10px 0
       color: #6E7191
       cursor: pointer
-    li:first-of-type
+    .catalog__li:first-of-type
       padding-top: 20px
 
 
-.search-result
+.catalog__search-result
   position: absolute
   height: 392px
   z-index: 100
@@ -95,7 +96,7 @@ $roboto: 'Roboto', serif
   width: 1280px
   border-radius: 0 0 40px 40px
   text-align: center
-  a
+  .catalog__search-result-a
     width: 50%
     float: left
     padding: 10px 0
@@ -103,10 +104,10 @@ $roboto: 'Roboto', serif
     font-family: $roboto
     font-size: 16px
     color: black
-  a:hover
+  .catalog__search-result-a:hover
     color: #FC441D
 
-.search
+.catalog__search
   text-align: center
   padding: 40px 0
   input
@@ -123,8 +124,3 @@ $roboto: 'Roboto', serif
     position: absolute
     margin-top: 23px
     margin-left: 27px
-.ant-modal-content
-  border-radius: 40px
-.ant-modal-body
-  padding: 0
-  border-radius: 40px

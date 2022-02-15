@@ -41,6 +41,7 @@ export function Search(props) {
     let list = searchMassive.map((item) => {
       return (
         <a
+          className="catalog__search-result-a"
           key={item.id}
           onClick={() =>
             choiceCategory([
@@ -54,7 +55,7 @@ export function Search(props) {
         </a>
       );
     });
-    output = <div className="search-result">{list}</div>;
+    output = <div className="catalog__search-result">{list}</div>;
   }
 
   return output;
